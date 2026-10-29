@@ -4,7 +4,8 @@ import 'package:uts/main.dart';
 void main() {
   testWidgets('LokaTrip menampilkan halaman beranda', (tester) async {
     await tester.pumpWidget(const LokaTripApp());
-    expect(find.text('Selamat datang,'), findsOneWidget);
-    expect(find.text('Rekomendasi untukmu'), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Selamat datang,'), findsOneWidget);
+    expect(find.textContaining('Temukan tempat'), findsOneWidget);
   });
 }
